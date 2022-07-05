@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+</head>
+<style>
+    fieldset{
+        width: 400px;
+    }
+    body {
+        background-color: rgb(255, 255, 255);
+    }
+    input{
+        background-color: rgb(245, 244, 237);
+    }
+</style>
+<body>
+    <center><fieldset>
+        <legend>Calculadora de IMC</legend>
+        Informe seu nome: <input><br>
+        <br>
+        Informe sua altura: (Ex: 1.80) <input type="number" id="altura"><br>
+        <br>
+        Informe seu peso: <input type="number" id="peso"><br>
+        <br>
+        O valor do seu IMC é: <span id="valoraqui"></span><br>
+        <br>
+        <span id="imcaqui">:</span><br> 
+        <br>
+        <button onclick="imc()">enviar</button>
+    </fieldset></center>
+
+    <script>
+       function imc(){
+           let peso = document.getElementById('peso').value;
+           let altura = document.getElementById('altura').value;
+           let imc = peso / (altura * altura);
+           console.log(peso)
+           console.log(altura)
+
+           if (imc < 20){
+            document.getElementById('valoraqui').innerHTML = imc
+            document.getElementById('imcaqui').style.color = 'green';
+            document.getElementById('imcaqui').innerHTML = 'VOCÊ ESTÁ ABAIXO DO PESO IDEAL';
+        } else {
+            if (imc >= 20 && imc < 25){
+            document.getElementById('valoraqui').innerHTML = imc
+            document.getElementById('imcaqui').style.color = 'blue';
+            document.getElementById('imcaqui').innerHTML = 'VOCÊ ESTÁ COM O PESO IDEAL';
+            }
+       }  if (imc >= 25 && imc < 30){
+            document.getElementById('valoraqui').innerHTML = imc
+            document.getElementById('imcaqui').style.color = 'red';
+            document.getElementById('imcaqui').innerHTML = 'VOCÊ ESTÁ ACIMA DO PESO IDEAL';
+           } else {
+           if (imc >= 30 && imc < 35){
+            document.getElementById('valoraqui').innerHTML = imc
+            document.getElementById('imcaqui').style.color = 'red';
+            document.getElementById('imcaqui').innerHTML = 'VOCÊ ESTÁ COM OBESIDADE I';
+
+           }
+            } if (imc >= 40){
+            document.getElementById('valoraqui').innerHTML = imc
+            document.getElementById('imcaqui').style.color = 'red';
+            document.getElementById('imcaqui').innerHTML = 'VOCÊ ESTÁ COM OBESIDADE II';
+            } 
+       }
+
+    </script>
+</body>
+</html>
